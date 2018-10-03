@@ -13,6 +13,17 @@ class App extends Component {
     recommendations: []
   };
 
+  componentDidMount = () => {
+    const json = localStorage.getItem("recommendations");
+    const recommendations = JSON.parse(json);
+    this.setState({ recommendations });
+  };
+
+  componentDidUpdate = () => {
+    const recommendations = JSON.stringify(this.state.recommendations);
+    localStorage.setItem("recommendations", recommendations);
+  };
+
   getRecommendations = async (searchInput, mediaType) => {
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
     const apiUrl =
@@ -44,7 +55,7 @@ class App extends Component {
       <div>
         <Header />
         <Search getRecommendations={this.getRecommendations} />
-        {searchName && (
+        {recommendations.length > 0 && (
           <Recommendations
             searchName={searchName}
             searchType={searchType}

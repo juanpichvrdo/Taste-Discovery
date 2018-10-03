@@ -26,7 +26,7 @@ export default class Search extends Component {
             value={this.state.searchInput}
             onChange={this.handleOnChange}
             name="searchInput"
-            placeholder="Pulp Fiction"
+            placeholder="Search Item"
           />
           <select
             value={this.state.mediaType}
