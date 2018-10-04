@@ -2,8 +2,18 @@ import React, { Component } from "react";
 
 export default class Search extends Component {
   state = {
-    searchInput: "",
-    mediaType: "movies"
+    searchName: "",
+    searchType: "movies"
+  };
+
+  componentDidMount = () => {
+    const jsonName = localStorage.getItem("searchName");
+    const searchName = JSON.parse(jsonName);
+
+    const jsonType = localStorage.getItem("searchType");
+    const searchType = JSON.parse(jsonType);
+
+    this.setState({ searchName, searchType });
   };
 
   handleOnChange = e => {
@@ -12,26 +22,28 @@ export default class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { mediaType, searchInput } = this.state;
+    const { searchType, searchName } = this.state;
 
-    this.props.getRecommendations(searchInput, mediaType);
+    this.props.getRecommendations(searchName, searchType);
   };
 
   render() {
+    const { searchName, searchType } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            value={this.state.searchInput}
+            value={searchName}
             onChange={this.handleOnChange}
-            name="searchInput"
+            name="searchName"
             placeholder="Search Item"
+            required
           />
           <select
-            value={this.state.mediaType}
+            value={searchType}
             onChange={this.handleOnChange}
-            name="mediaType"
+            name="searchType"
           >
             <option value="music">Music</option>
             <option value="movies">Movies</option>
