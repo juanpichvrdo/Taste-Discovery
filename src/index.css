@@ -2,8 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  background-image: linear-gradient(25deg, #2a317b, #324b95, #3765b0, #3b80cb);
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+  color: #fcfdff;
 }

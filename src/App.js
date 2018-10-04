@@ -89,18 +89,20 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Search getRecommendations={this.getRecommendations} />
-        <Loader loaded={loaded}>
-          {recommendations.length > 0 ? (
-            <Recommendations
-              searchName={searchName}
-              searchType={searchType}
-              recommendations={recommendations}
-            />
-          ) : (
-            <h2>Couldn't find anything :/</h2>
-          )}
-        </Loader>
+        <div className="grid-container">
+          <Search getRecommendations={this.getRecommendations} />
+          <Loader loaded={loaded}>
+            {recommendations.length > 0 ? (
+              <Recommendations
+                searchName={searchName}
+                searchType={searchType}
+                recommendations={recommendations}
+              />
+            ) : (
+              <h2>Couldn't find anything :/</h2>
+            )}
+          </Loader>
+        </div>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Search.css";
 
 export default class Search extends Component {
   state = {
@@ -30,16 +31,8 @@ export default class Search extends Component {
   render() {
     const { searchName, searchType } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={searchName}
-            onChange={this.handleOnChange}
-            name="searchName"
-            placeholder="Search Item"
-            required
-          />
+      <form onSubmit={this.handleSubmit} className="search">
+        <div className="select-style">
           <select
             value={searchType}
             onChange={this.handleOnChange}
@@ -52,9 +45,21 @@ export default class Search extends Component {
             <option value="games">Games</option>
             <option value="everything">Everything</option>
           </select>
-          <button type="submit">Search</button>
-        </form>
-      </div>
+        </div>
+        <div className="relative">
+          <input
+            type="text"
+            value={searchName}
+            onChange={this.handleOnChange}
+            name="searchName"
+            placeholder={`Search ${searchType}`}
+            required
+          />
+          <button type="submit">
+            <i class="fas fa-search" />
+          </button>
+        </div>
+      </form>
     );
   }
 }

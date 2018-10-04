@@ -37,7 +37,9 @@ class RecommendationDetails extends Component {
         )}
 
         {info ? <p> {info} </p> : <p>No additional info</p>}
-        <a href={wiki}>Wikipedia Page</a>
+        <a href={wiki} target="_blank" rel="noopener noreferrer">
+          Wikipedia Page
+        </a>
       </div>
     );
   }

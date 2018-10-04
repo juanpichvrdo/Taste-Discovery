@@ -1,0 +1,26 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+.logo {
+  font-size: 3rem;
+  color: #fcfdff;
+}
+
+.taste {
+  color: #cae344;
+}
+
+.github {
+  font-size: 3rem;
+  color: #d9dde5;
+  transition: all 0.2s;
+}
+
+.github:hover {
+  color: #e6ebf5;
+}
