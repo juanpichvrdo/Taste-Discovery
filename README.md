@@ -2,6 +2,8 @@ Web app that allows users to find recommendations and helps them discover new mu
 
 Made with React using TasteDive API.
 
+### `How To Use`
+
 In the project directory, run:
 
 ### `npm start`
