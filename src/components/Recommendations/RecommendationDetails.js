@@ -19,18 +19,20 @@ class RecommendationDetails extends Component {
         <Link to="/">Back</Link>
         <h1> {name} </h1>
         <h2> {type} </h2>
-        <p> {info} </p>
+        {info ? <p> {info} </p> : <p>No additional info</p>}
         <a href={wiki}>Wikipedia Page</a>
 
-        <Loader loaded={this.state.loaded} />
         {videoID && (
-          <YouTube
-            videoId={videoID}
-            onReady={() => this.setState({ loaded: true })}
-            // className={string}
-            // containerClassName={string}
-            opts={opts}
-          />
+          <React.Fragment>
+            <Loader loaded={this.state.loaded} />
+            <YouTube
+              videoId={videoID}
+              onReady={() => this.setState({ loaded: true })}
+              // className={string}
+              // containerClassName={string}
+              opts={opts}
+            />
+          </React.Fragment>
         )}
       </div>
     );
