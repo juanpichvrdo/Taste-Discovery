@@ -22,6 +22,7 @@ input {
   width: 100%;
   color: #3765b0;
   transition: all 0.2s;
+  font-family: "Nunito", sans-serif;
 }
 
 ::placeholder {
@@ -40,8 +41,8 @@ input:focus {
 button {
   position: absolute;
   z-index: 100;
-  top: 20%;
-  left: 90%;
+  top: 23%;
+  left: 89%;
   background: none;
   border: none;
   font-size: 2rem;
@@ -59,21 +60,34 @@ button:hover {
   width: 12rem;
   border-radius: 3px;
   overflow: hidden;
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
+  position: relative;
+  display: inline-block;
+  z-index: 2;
 }
 
-/* .select-style select::after {
-  content: "fsgg";
-} */
+.select-style::after {
+  content: " ";
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: 1.5rem;
+  position: absolute;
+  top: 36%;
+  left: 80%;
+  background-image: url("./drop-down-arrow.svg");
+  fill: #fcfdff;
+  cursor: pointer;
+}
 
 .select-style select {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #fcfdff;
   padding: 5px 8px;
   width: 130%;
   border: none;
   box-shadow: none;
   background: transparent;
+  font-family: "Nunito", sans-serif;
   background-image: none;
 }
 
@@ -83,9 +97,5 @@ button:hover {
 
 .select-style select:focus {
   outline: none;
-  background: #386bb6;
+  background: #3662ac;
 }
-
-/* .options {
-  color: black;
-} */
