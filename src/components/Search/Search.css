@@ -90,6 +90,7 @@ button:hover {
   background: transparent;
   font-family: "Nunito", sans-serif;
   background-image: none;
+  font-weight: 700;
 }
 
 .select-style select:hover {

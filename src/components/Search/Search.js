@@ -8,10 +8,10 @@ export default class Search extends Component {
   };
 
   componentDidMount = () => {
-    const jsonName = localStorage.getItem("searchName");
+    const jsonName = sessionStorage.getItem("searchName");
     const searchName = JSON.parse(jsonName);
 
-    const jsonType = localStorage.getItem("searchType");
+    const jsonType = sessionStorage.getItem("searchType");
     const searchType = JSON.parse(jsonType);
 
     this.setState({ searchName, searchType });
@@ -52,7 +52,7 @@ export default class Search extends Component {
             value={searchName}
             onChange={this.handleOnChange}
             name="searchName"
-            placeholder={`Search ${searchType}`}
+            placeholder={`Search ${searchType ? searchType : ""}`}
             required
           />
           <button type="submit">

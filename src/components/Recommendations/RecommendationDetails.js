@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import YouTube from "react-youtube";
 import Loader from "react-loader";
 
+import "./recommendationDetails.css";
+
 class RecommendationDetails extends Component {
   state = {
     loaded: false
@@ -16,9 +18,16 @@ class RecommendationDetails extends Component {
     };
     return (
       <div>
-        <Link to="/">Back</Link>
-        <h1> {name} </h1>
-        <h2> {type} </h2>
+        <div className="heading">
+          <Link to="/">
+            {" "}
+            <i class="fas fa-long-arrow-alt-left back" />{" "}
+          </Link>
+          <h1 className="main-heading">
+            {" "}
+            {name} - {type}
+          </h1>
+        </div>
 
         {videoID && (
           <React.Fragment>
@@ -29,9 +38,10 @@ class RecommendationDetails extends Component {
                 this.setState({
                   loaded: true
                 })
-              } // className={string}
-              // containerClassName={string}
-              opts={opts}
+              }
+              opts={
+                opts // containerClassName={string} // className={string}
+              }
             />
           </React.Fragment>
         )}

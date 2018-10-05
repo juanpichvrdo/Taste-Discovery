@@ -8,11 +8,15 @@
 
 html {
   font-size: 62.5%;
-  background-image: linear-gradient(25deg, #2a317b, #324b95, #3765b0, #3b80cb);
 }
 
 body {
   font-family: "Nunito", sans-serif;
   font-size: 1.6rem;
   color: #fcfdff;
+  background-image: linear-gradient(25deg, #2a317b, #324b95, #3765b0, #3b80cb);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }

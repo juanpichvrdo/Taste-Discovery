@@ -5,15 +5,16 @@ import "./recommendations.css";
 
 class Recommendations extends Component {
   render() {
-    const { searchName, searchType, recommendations } = this.props;
+    const { searchName, searchType, recommendations, error } = this.props;
     return (
       <div className="recommendation">
-        {searchName && (
-          <h2 className="recommendation-heading">
-            {searchName} -{" "}
-            <span className="recommendation-type">{searchType}</span>
-          </h2>
-        )}
+        {searchName &&
+          !error && (
+            <h2 className="recommendation-heading">
+              {searchName} -{" "}
+              <span className="recommendation-type">{searchType}</span>
+            </h2>
+          )}
 
         <div className="recommendation-list">
           {recommendations.map(recommendation => (
@@ -43,9 +44,3 @@ class Recommendations extends Component {
 }
 
 export default Recommendations;
-
-// <RecommendationDetails
-//   key={recommendation.Name}
-//   recommendationName={recommendation.Name}
-//   recommendationType={recommendation.Type}
-// />

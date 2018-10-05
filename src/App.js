@@ -12,20 +12,26 @@ class App extends Component {
     searchName: "",
     searchType: "",
     recommendations: [],
-    loaded: false
+    loaded: false,
+    error: false
   };
 
   componentDidMount = () => {
-    const jsonRec = localStorage.getItem("recommendations");
+    const jsonRec = sessionStorage.getItem("recommendations");
     const recommendations = JSON.parse(jsonRec);
 
-    const jsonName = localStorage.getItem("searchName");
+    const jsonName = sessionStorage.getItem("searchName");
     const searchName = JSON.parse(jsonName);
 
-    const jsonType = localStorage.getItem("searchType");
+    const jsonType = sessionStorage.getItem("searchType");
     const searchType = JSON.parse(jsonType);
 
     this.setState({ recommendations, searchName, searchType, loaded: true });
+    if (!this.state.recommendations) {
+      this.setState({ error: true });
+    } else {
+      this.setState({ error: false });
+    }
   };
 
   componentDidUpdate = () => {
@@ -33,9 +39,9 @@ class App extends Component {
     const searchName = JSON.stringify(this.state.searchName);
     const searchType = JSON.stringify(this.state.searchType);
 
-    localStorage.setItem("recommendations", recommendations);
-    localStorage.setItem("searchName", searchName);
-    localStorage.setItem("searchType", searchType);
+    sessionStorage.setItem("recommendations", recommendations);
+    sessionStorage.setItem("searchName", searchName);
+    sessionStorage.setItem("searchType", searchType);
   };
 
   getRecommendations = async (searchInput, mediaType) => {
@@ -47,8 +53,6 @@ class App extends Component {
       this.setState({
         loaded: true
       });
-    } else {
-      this.setState({ emptyInput: false });
     }
 
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
@@ -73,34 +77,48 @@ class App extends Component {
       });
 
       if (mediaType === "everything") {
-        this.setState({
-          searchType: "Everything"
-        });
+        this.setState({ searchType: "Everything" });
+      }
+
+      if (this.state.searchType === "unknown") {
+        this.setState({ error: true });
+      } else {
+        this.setState({ error: false });
       }
 
       console.log(this.state.recommendations);
     } catch (e) {
       console.log(e);
+      this.setState({
+        error: true
+      });
     }
   };
 
   render() {
-    const { searchName, searchType, recommendations, loaded } = this.state;
+    const {
+      searchName,
+      searchType,
+      recommendations,
+      loaded,
+      error
+    } = this.state;
     return (
       <div>
         <Header />
         <div className="grid-container">
           <Search getRecommendations={this.getRecommendations} />
           <Loader loaded={loaded}>
-            {recommendations.length > 0 ? (
+            {recommendations && (
               <Recommendations
                 searchName={searchName}
                 searchType={searchType}
                 recommendations={recommendations}
+                error={error}
               />
-            ) : (
-              <h2>Couldn't find anything :/</h2>
             )}
+
+            {error && <h2>Couldn't find anything :/</h2>}
           </Loader>
         </div>
       </div>
