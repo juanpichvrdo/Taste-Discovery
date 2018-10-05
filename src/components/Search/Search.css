@@ -23,6 +23,7 @@ input {
   color: #3765b0;
   transition: all 0.2s;
   font-family: "Nunito", sans-serif;
+  font-weight: 700;
 }
 
 ::placeholder {

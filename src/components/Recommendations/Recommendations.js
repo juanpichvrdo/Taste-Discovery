@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import "./recommendations.css";
+
 class Recommendations extends Component {
   render() {
     const { searchName, searchType, recommendations } = this.props;
     return (
-      <div>
+      <div className="recommendation">
         {searchName && (
-          <h2 style={{ textTransform: "capitalize" }}>
-            {searchName} - {searchType}
+          <h2 className="recommendation-heading">
+            {searchName} -{" "}
+            <span className="recommendation-type">{searchType}</span>
           </h2>
         )}
 
-        <React.Fragment>
+        <div className="recommendation-list">
           {recommendations.map(recommendation => (
             <Link
               to={{
@@ -27,14 +30,13 @@ class Recommendations extends Component {
                 }
               }}
               key={recommendation.Name}
+              className="recommendation-links"
             >
-              <h5>{recommendation.Name}</h5>
-              <h6 style={{ textTransform: "capitalize" }}>
-                {recommendation.Type}
-              </h6>
+              <h4>{recommendation.Name}</h4>
+              <h6 className="recommendation-type">{recommendation.Type}</h6>
             </Link>
           ))}
-        </React.Fragment>
+        </div>
       </div>
     );
   }

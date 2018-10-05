@@ -1,0 +1,36 @@
+.recommendation {
+  width: 110rem;
+}
+
+.recommendation-heading {
+  text-transform: capitalize;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.recommendation-type {
+  text-transform: capitalize;
+  color: #cae344;
+}
+
+.recommendation-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-gap: 2rem;
+  width: 100%;
+}
+
+.recommendation-links {
+  color: #fcfdff;
+  border-radius: 10px;
+  font-size: 2rem;
+  height: 10rem;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
