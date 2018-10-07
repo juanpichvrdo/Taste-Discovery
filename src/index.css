@@ -8,7 +8,8 @@
 
 html {
   font-size: 62.5%;
-  background-image: linear-gradient(25deg, #2a317b, #324b95, #3765b0, #3b80cb);
+  /* background-image: linear-gradient(25deg, #292586, #7c5d76, #b29b5e, #e2dd29); */
+  background-image: linear-gradient(25deg, #d36738, #b98764, #90a390, #2ebcbd);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -26,6 +27,11 @@ body {
   font-family: "Nunito", sans-serif;
   font-size: 1.6rem;
   color: #fcfdff;
+}
+
+::selection {
+  background: #d36738;
+  border-radius: 3px;
 }
 
 @media only screen and (max-width: 920px) {

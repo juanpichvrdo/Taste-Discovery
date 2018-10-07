@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import YouTube from "react-youtube";
-import Loader from "react-loader";
 
 import "./recommendationDetails.css";
 
@@ -11,14 +10,7 @@ class RecommendationDetails extends Component {
   };
 
   render() {
-    const {
-      name,
-      type,
-      info,
-      wiki,
-      videoID,
-      loaded
-    } = this.props.location.state;
+    const { name, type, info, wiki, videoID } = this.props.location.state;
     return (
       <div>
         <div className="recommendation-heading">
@@ -47,24 +39,21 @@ class RecommendationDetails extends Component {
         </div>
 
         {videoID && (
-          <React.Fragment>
-            <Loader loaded={loaded} className="loader" />
-            <YouTube
-              videoId={videoID}
-              onReady={() =>
-                this.setState({
-                  loaded: true
-                })
-              }
-              className="youtube"
-            />
-          </React.Fragment>
+          <YouTube
+            videoId={videoID}
+            onReady={() =>
+              this.setState({
+                loaded: true
+              })
+            }
+            className="youtube"
+          />
         )}
 
         <div className="link-container">
           <Link to="/">
             {" "}
-            <i class="fas fa-arrow-circle-left back-icon" />{" "}
+            <i className="fas fa-arrow-circle-left back-icon" />{" "}
           </Link>
         </div>
       </div>

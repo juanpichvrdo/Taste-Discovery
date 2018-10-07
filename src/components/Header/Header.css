@@ -11,16 +11,16 @@ header {
   color: #fcfdff;
 }
 
-.taste {
+.discovery {
   color: #cae344;
 }
 
 .github {
   font-size: 3rem;
-  color: #d9dde5;
+  color: #fcfdff;
   transition: all 0.2s;
 }
 
 .github:hover {
-  color: #cae344;
+  color: #d36738;
 }
