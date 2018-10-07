@@ -11,7 +11,14 @@ class RecommendationDetails extends Component {
   };
 
   render() {
-    const { name, type, info, wiki, videoID } = this.props.location.state;
+    const {
+      name,
+      type,
+      info,
+      wiki,
+      videoID,
+      loaded
+    } = this.props.location.state;
     return (
       <div>
         <div className="recommendation-heading">
@@ -41,7 +48,7 @@ class RecommendationDetails extends Component {
 
         {videoID && (
           <React.Fragment>
-            <Loader loaded={this.state.loaded} className="loader" />
+            <Loader loaded={loaded} className="loader" />
             <YouTube
               videoId={videoID}
               onReady={() =>

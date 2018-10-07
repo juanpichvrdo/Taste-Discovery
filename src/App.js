@@ -26,6 +26,7 @@ class App extends Component {
     const searchType = JSON.parse(jsonType);
 
     this.setState({ recommendations, searchName, searchType, loaded: true });
+
     if (!this.state.recommendations) {
       this.setState({ error: true });
     } else {
@@ -35,11 +36,12 @@ class App extends Component {
 
   componentDidUpdate = () => {
     const recommendations = JSON.stringify(this.state.recommendations);
-    const searchName = JSON.stringify(this.state.searchName);
-    const searchType = JSON.stringify(this.state.searchType);
-
     sessionStorage.setItem("recommendations", recommendations);
+
+    const searchName = JSON.stringify(this.state.searchName);
     sessionStorage.setItem("searchName", searchName);
+
+    const searchType = JSON.stringify(this.state.searchType);
     sessionStorage.setItem("searchType", searchType);
   };
 
@@ -117,7 +119,9 @@ class App extends Component {
             )}
 
             {error && (
-              <h2 style={{ textAlign: "center" }}>Couldn't find anything :/</h2>
+              <h2 style={{ textAlign: "center", marginBottom: "50vh" }}>
+                Couldn't find anything :/
+              </h2>
             )}
           </Loader>
         </div>

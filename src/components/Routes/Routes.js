@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import App from "../App";
-import RecommendationDetails from "./Recommendations/RecommendationDetails";
-import Header from "./Header/Header";
+import App from "../../App";
+import RecommendationDetails from "../Recommendations/RecommendationDetails";
+import Header from "../Header/Header";
 
 const Routes = () => (
   <BrowserRouter>
@@ -16,7 +16,7 @@ const Routes = () => (
       <p
         style={{
           textAlign: "center",
-          margin: "2rem 0 1.5rem",
+          margin: "0rem 0 1.5rem",
           fontSize: "1.6rem",
           fontWeight: "700"
         }}

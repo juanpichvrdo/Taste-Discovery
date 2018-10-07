@@ -32,7 +32,7 @@ export default class Search extends Component {
     const { searchName, searchType } = this.state;
     return (
       <div className="search">
-        <h3>Get recommendations of things that you like!</h3>
+        <h3>Get recommendations of things you like!</h3>
         <form onSubmit={this.handleSubmit}>
           <div className="select-style">
             <select

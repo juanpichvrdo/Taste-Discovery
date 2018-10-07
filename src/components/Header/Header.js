@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <h2 className="logo">
-        <span className="taste">Taste</span> Like
+        Taste <span className="taste">Discovery</span>
       </h2>
       <a
         href="https://github.com/juanpichvrdo/Taste-Like"
