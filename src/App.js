@@ -6,6 +6,8 @@ import "./App.css";
 import Search from "./components/Search/Search";
 import Recommendations from "./components/Recommendations/Recommendations";
 
+const apiKey = "320727-TasteLik-SK1UUNYY";
+
 class App extends Component {
   state = {
     searchName: "",
@@ -59,12 +61,8 @@ class App extends Component {
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
     const apiUrl =
       mediaType !== "everything"
-        ? `https://tastedive.com/api/similar?k=${
-            process.env.REACT_APP_API_KEY
-          }&q=${searchInput}&type=${mediaType}&info=1`
-        : `https://tastedive.com/api/similar?k=${
-            process.env.REACT_APP_API_KEY
-          }&q=${searchInput}&info=1`;
+        ? `https://tastedive.com/api/similar?k=${apiKey}&q=${searchInput}&type=${mediaType}&info=1`
+        : `https://tastedive.com/api/similar?k=${apiKey}&q=${searchInput}&info=1`;
 
     try {
       const response = await fetch(proxyUrl + apiUrl);
