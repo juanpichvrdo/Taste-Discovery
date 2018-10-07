@@ -10,10 +10,10 @@ class Recommendations extends Component {
       <div className="recommendation">
         {searchName &&
           !error && (
-            <h2 className="recommendation-heading">
-              {searchName} -{" "}
-              <span className="recommendation-type">{searchType}</span>
-            </h2>
+            <div className="recommendation-heading">
+              <h2>{searchName}</h2>
+              <h4>{searchType}</h4>
+            </div>
           )}
 
         <div className="recommendation-list">

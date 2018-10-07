@@ -4,15 +4,29 @@
 
 .recommendation-heading {
   text-transform: capitalize;
-  font-size: 3.5rem;
   margin-bottom: 2rem;
-  font-weight: 300;
   padding: 1rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.recommendation-heading h2 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin-right: 2rem;
+}
+
+.recommendation-heading h4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #cae344;
 }
 
 .recommendation-type {
   text-transform: capitalize;
   color: #cae344;
+  font-weight: 700;
 }
 
 .recommendation-list {
@@ -29,22 +43,39 @@
   /* background-image: linear-gradient(25deg, #899a7e, #a7b166, #c1c848, #d9e000); */
   color: #fcfdff;
   border-radius: 10px;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  padding: 0.5rem;
   height: 10rem;
-  width: 15rem;
+  width: 16rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  box-shadow: 1px 4px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 4px 7px rgba(0, 0, 0, 0.3);
   transition: all 0.2s;
+}
+
+.recommendation-links:active {
+  transform: translateY(3px);
+}
+
+.recommendation-links:hover {
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
 }
 
 .recommendation-links h4 {
   font-weight: 400;
 }
 
-.recommendation-links:hover {
-  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.35);
+@media only screen and (max-width: 920px) {
+  .recommendation-list {
+    padding: 0.5rem;
+    grid-gap: 1.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
 }

@@ -3,7 +3,6 @@ import Loader from "react-loader";
 
 import "./App.css";
 
-import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import Recommendations from "./components/Recommendations/Recommendations";
 
@@ -105,7 +104,6 @@ class App extends Component {
     } = this.state;
     return (
       <div>
-        <Header />
         <div className="grid-container">
           <Search getRecommendations={this.getRecommendations} />
           <Loader loaded={loaded}>
@@ -118,7 +116,9 @@ class App extends Component {
               />
             )}
 
-            {error && <h2>Couldn't find anything :/</h2>}
+            {error && (
+              <h2 style={{ textAlign: "center" }}>Couldn't find anything :/</h2>
+            )}
           </Loader>
         </div>
       </div>

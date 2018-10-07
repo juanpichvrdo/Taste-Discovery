@@ -12,26 +12,36 @@ class RecommendationDetails extends Component {
 
   render() {
     const { name, type, info, wiki, videoID } = this.props.location.state;
-    const opts = {
-      height: "390",
-      width: "640"
-    };
     return (
       <div>
-        <div className="heading">
-          <Link to="/">
+        <div className="recommendation-heading">
+          <h1>{name}</h1>
+          <h3>{type}</h3>
+        </div>
+
+        {info && (
+          <p className="info">
             {" "}
-            <i class="fas fa-long-arrow-alt-left back" />{" "}
-          </Link>
-          <h1 className="main-heading">
-            {" "}
-            {name} - {type}
-          </h1>
+            {info.substring(0, 600)}
+            ...
+          </p>
+        )}
+
+        <div className="link-container">
+          <a
+            href={wiki}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="wiki-link"
+          >
+            Wikipedia Page{" "}
+            <i className="fas fa-arrow-right" style={{ marginLeft: ".5rem" }} />
+          </a>
         </div>
 
         {videoID && (
           <React.Fragment>
-            <Loader loaded={this.state.loaded} />
+            <Loader loaded={this.state.loaded} className="loader" />
             <YouTube
               videoId={videoID}
               onReady={() =>
@@ -39,17 +49,17 @@ class RecommendationDetails extends Component {
                   loaded: true
                 })
               }
-              opts={
-                opts // containerClassName={string} // className={string}
-              }
+              className="youtube"
             />
           </React.Fragment>
         )}
 
-        {info ? <p> {info} </p> : <p>No additional info</p>}
-        <a href={wiki} target="_blank" rel="noopener noreferrer">
-          Wikipedia Page
-        </a>
+        <div className="link-container">
+          <Link to="/">
+            {" "}
+            <i class="fas fa-arrow-circle-left back-icon" />{" "}
+          </Link>
+        </div>
       </div>
     );
   }

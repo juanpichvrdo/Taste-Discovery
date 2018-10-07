@@ -1,4 +1,4 @@
-Web app that allows users to find recommendations and helps them discover new music, movies, TV shows, books, authors and games, based on what they like. Users can search all categories, or limit their search to one specific category. The app also displays information about the recommendations and provides youtube videos relating to the recommendations when available.
+Web app that allows users to find recommendations and helps them discover new music, movies, TV shows, books and games, based on what they like. Users can search all categories, or limit their search to one specific category. The app displays information about the recommendations and provides youtube videos relating to the recommendations when available.
 
 Made with React using TasteDive API.
 

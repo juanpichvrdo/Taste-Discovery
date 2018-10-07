@@ -1,19 +1,107 @@
-.heading {
-  display: flex;
-  margin: 2rem;
+.recommendation-heading {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 0;
 }
 
-.main-heading {
+.recommendation-heading h1 {
   font-weight: 300;
   text-transform: capitalize;
+  margin-right: 2rem;
 }
 
-.back {
-  font-size: 5rem;
+.recommendation-heading h3 {
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #cae344;
+}
+
+.info {
+  max-width: 70%;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0 auto 2rem;
+  font-size: 1.6rem;
+  padding: 1.5rem;
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wiki-link {
+  font-size: 2rem;
   color: #fcfdff;
+  font-weight: 700;
   transition: all 0.3s;
 }
 
-.back:hover {
+.wiki-link:hover {
   color: #cae344;
+}
+
+.link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3.5rem 0;
+}
+
+.youtube {
+  max-width: 90%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 2px 6px 13px rgba(0, 0, 0, 0.3);
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.back-icon {
+  font-size: 7rem;
+  color: #fcfdff;
+
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.back-icon:hover {
+  color: #cae344;
+}
+
+.back-icon:active {
+  transform: translateY(2px);
+}
+
+@media only screen and (max-width: 980px) {
+  .info {
+    max-width: 80%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .info {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .recommendation-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recommendation-heading h1 {
+    margin-right: 0rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .youtube {
+    max-width: 96%;
+  }
 }

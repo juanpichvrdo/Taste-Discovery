@@ -1,6 +1,16 @@
 .search {
   margin: 3rem;
   min-width: 50%;
+}
+
+.search h3 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.search form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +18,7 @@
 
 .relative {
   position: relative;
-  width: 50%;
+  min-width: 50%;
   margin-left: 2rem;
 }
 
@@ -24,6 +34,7 @@ input {
   transition: all 0.2s;
   font-family: "Nunito", sans-serif;
   font-weight: 700;
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.1);
 }
 
 ::placeholder {
@@ -53,7 +64,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  color: #324b95;
+  color: #cae344;
 }
 
 .select-style {
@@ -100,4 +111,17 @@ button:hover {
 .select-style select:focus {
   outline: none;
   background: #3662ac;
+}
+
+@media only screen and (max-width: 600px) {
+  .search form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .relative {
+    margin-top: 2rem;
+    margin-left: 0;
+  }
 }
